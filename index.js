@@ -120,7 +120,11 @@ const getContentSecurityPolicy = (config, res) => {
  * @param options.getTerms {boolean} Optional boolean - whether to mount the /terms endpoint
  * @param options.getCookies {boolean} Optional boolean - whether to mount the /cookies endpoint
  * @param options.noCache {boolean} Optional boolean - whether to disable caching
- *
+ * @param options.getContact {boolean} Optional boolean - whether to mount the /contact endpoint
+ * @param options.getAccessibilityStatement {boolean} Optional boolean - whether to mount the /accessibility-statement endpoint
+ * @param options.getHelp {boolean} Optional boolean - whether to mount the /help endpoint
+ * @param options.getPrivacy {boolean} Optional boolean - whether to mount the /privacy endpoint
+ * 
  * @returns {object} A new HOF application using the configuration supplied in options
  */
 function bootstrap(options) {
@@ -205,6 +209,16 @@ function bootstrap(options) {
   app.use(mixins());
   app.use(markdown(config.markdown));
 
+  if (config.getContact === true) {
+    deprecate(
+      '`getContact` option is deprecated and may be removed in future versions.',
+      'Use `pages` to define static contact page.'
+    );
+    app.get('/contact', (req, res) => {
+      const locals = Object.assign({}, req.translate('contact'));
+      res.render('contact', locals);
+    });
+  }
   if (config.getAccessibility === true) {
     deprecate(
       '`getAccessibility` option is deprecated and may be removed in future versions.',
@@ -233,6 +247,16 @@ function bootstrap(options) {
     app.get('/terms-and-conditions', (req, res) => {
       const locals = Object.assign({}, req.translate('terms'));
       res.render('terms', locals);
+    });
+  }
+  if (config.getPrivacy === true) {
+    deprecate(
+      '`getPrivacy` option is deprecated and may be removed in future versions.',
+      'Use `pages` to define static contact page.'
+    );
+    app.get('/privacy', (req, res) => {
+      const locals = Object.assign({}, req.translate('privacy'));
+      res.render('privacy', locals);
     });
   }
 

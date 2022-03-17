@@ -1,9 +1,9 @@
-<div id="{{id}}-group" class="form-group{{#compound}} form-group-compound{{/compound}}{{#formGroupClassName}} {{formGroupClassName}}{{/formGroupClassName}}{{^date}}{{#error}} validation-error{{/error}}{{/date}}">
+<div id="{{id}}-group" class="form-group{{#compound}} form-group-compound{{/compound}}{{#formGroupClassName}} {{formGroupClassName}}{{/formGroupClassName}}{{^date}}{{#error}} govuk-form-group--error{{/error}}{{/date}}">
     <label for="{{id}}" class="{{labelClassName}}">
         <span class="label-text">{{{label}}}</span>
-        {{#hint}}<span {{$hintId}}id="{{hintId}}" {{/hintId}}class="form-hint">{{hint}}</span>{{/hint}}
-        {{^date}}{{#error}}<span class="error-message">{{error.message}}</span>{{/error}}{{/date}}
     </label>
+    {{#hint}}<span {{$hintId}}id="{{hintId}}" {{/hintId}}class="govuk-hint">{{hint}}</span>{{/hint}}
+    {{^date}}{{#error}}<span class="govuk-error-message">{{error.message}}</span>{{/error}}{{/date}}
     {{#renderChild}}{{/renderChild}}
     <div class="govuk-input__wrapper">
         {{#attributes}}
