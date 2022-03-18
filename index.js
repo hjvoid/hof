@@ -208,6 +208,9 @@ function bootstrap(options) {
   }));
   app.use(mixins());
   app.use(markdown(config.markdown));
+  
+  // Set up routing so <YOUR-SITE-URL>/assets are served from /node_modules/govuk-frontend/govuk/assets
+  app.use('/assets', express.static(path.join(__dirname, '/node_modules/govuk-frontend/govuk/assets')))
 
   if (config.getContact === true) {
     deprecate(
