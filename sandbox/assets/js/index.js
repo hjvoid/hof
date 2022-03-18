@@ -1,6 +1,8 @@
 /* eslint-disable */
 'use strict'
 
+const GOVUKFrontend = require('../../../node_modules/govuk-frontend')
+GOVUKFrontend.initAll()
 require('../../../frontend/themes/gov-uk/client-js');
 
 var $ = require('jquery');
