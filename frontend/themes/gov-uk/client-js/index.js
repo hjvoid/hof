@@ -8,6 +8,7 @@ var formFocus = toolkit.formFocus;
 var characterCount = toolkit.characterCount;
 var validation = toolkit.validation;
 
+// var cookie = require('./govuk-cookies');
 var cookieSettings = require('./cookieSettings');
 
 toolkit.detailsSummary();
