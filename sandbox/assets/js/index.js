@@ -1,17 +1,7 @@
 /* eslint-disable */
 'use strict'
 
-/* eslint-disable */
-'use strict';
-const dialogPolyfill = require('dialog-polyfill')
-window.dialogPolyfill = dialogPolyfill;
-// const cookieSettings = require('hof-govfrontend-v3/frontend/themes/gov-uk/client-js/index');
-const GOVUK = require('../../../node_modules/govuk-frontend')
-GOVUK.initAll()
-window.GOVUK = GOVUK;
-const cookie = require('./govuk-cookies');
 require('../../../frontend/themes/gov-uk/client-js');
-
 
 var $ = require('jquery');
 var typeahead = require('typeahead-aria');
