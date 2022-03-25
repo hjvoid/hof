@@ -1,15 +1,19 @@
 /* eslint-disable no-var */
 'use strict';
 
-var toolkit = require('../../../toolkit');
-var helpers = toolkit.helpers;
-var progressiveReveal = toolkit.progressiveReveal;
-var formFocus = toolkit.formFocus;
-var characterCount = toolkit.characterCount;
-var validation = toolkit.validation;
+const toolkit = require('../../../toolkit');
+const helpers = toolkit.helpers;
+const progressiveReveal = toolkit.progressiveReveal;
+const formFocus = toolkit.formFocus;
+const characterCount = toolkit.characterCount;
+const validation = toolkit.validation;
 
-// var cookie = require('./govuk-cookies');
-var cookieSettings = require('./cookieSettings');
+const GOVUK = require('govuk-frontend')
+GOVUK.initAll();
+window.GOVUK = GOVUK;
+const cookie = require('./govuk-cookies')
+const cookieSettings = require('./cookieSettings');
+require('./skip-to-main')
 
 toolkit.detailsSummary();
 
