@@ -210,6 +210,7 @@ module.exports = function (options) {
         date: extension.date,
         autocomplete: autocomplete,
         child: field.child,
+        noHeading: field.noHeading,
         attributes: field.attributes,
         renderChild: renderChild.bind(this)
       });
@@ -237,6 +238,7 @@ module.exports = function (options) {
         legendClassName: legendClassName,
         role: opts.type === 'radio' ? 'radiogroup' : 'group',
         ariaRequired: opts.type === 'radio',
+        noHeading: field.noHeading,
         hintHTML: hintHTML ? hintHTML : '',
         hint: conditionalTranslate(getTranslationKey(field, key, 'hint')),
         options: _.map(field.options, function (obj) {

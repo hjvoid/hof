@@ -168,7 +168,7 @@ module.exports = class Controller extends BaseController {
   _getErrors(req, res, callback) {
     super._getErrors(req, res, () => {
       Object.keys(req.form.errors).forEach(key => {
-        var field = req.form.options.fields[key];
+        const field = req.form.options.fields[key];
         // get first option for radios
         if(field.mixin == 'radio-group') {
           req.form.errors[key].errorLinkId = key + "-" + field.options[0];

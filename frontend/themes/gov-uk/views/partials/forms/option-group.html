@@ -1,7 +1,9 @@
 <div id="{{key}}-group" class="govuk-form-group{{#className}} {{className}} {{/className}}{{#formGroupClassName}} {{formGroupClassName}}{{/formGroupClassName}}{{#error}} govuk-form-group--error{{/error}}">
     <fieldset class="govuk-fieldset" role="{{role}}" {{#hint}} aria-describedby="{{key}}-hint"{{/hint}}>
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l{{#legendClassName}} {{legendClassName}}{{/legendClassName}}">
-            <h1 class="govuk-fieldset__heading">{{legend}}</h1>
+            {{^noHeading}}<h1 class="govuk-fieldset__heading">{{/noHeading}}
+                {{legend}}
+            {{^noHeading}}</h1>{{/noHeading}}
         </legend>
         {{#error}}<span id="{{key}}-error" class="govuk-error-message"><span class="govuk-visually-hidden">Error:</span> {{error.message}}</span>{{/error}}
         {{#hint}}<div id="{{key}}-hint" class="govuk-hint">{{hint}}</div>{{/hint}}
