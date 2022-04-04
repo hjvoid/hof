@@ -17,7 +17,7 @@
     "label": "Full name"
   },
   "dateOfBirth": {
-    "legend": "Date of birth",
+    "legend": "What is your date of birth?",
     "hint": "For example, 31 10 1990"
   },
   "building": {

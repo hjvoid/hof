@@ -12,6 +12,7 @@ const renderer = require('./render');
 const PANELMIXIN = 'partials/mixins/panel';
 const PARTIALS = [
   'partials/forms/input-text-group',
+  'partials/forms/input-text-date',
   'partials/forms/input-submit',
   'partials/forms/select',
   'partials/forms/checkbox',
@@ -430,19 +431,19 @@ module.exports = function (options) {
             }
             const isRequired = field.validate ? field.validate.indexOf('required') > -1 : false;
             const formGroupClassName = (field.formGroup && field.formGroup.className) ? field.formGroup.className : ''
-            const classNameDay = (field.controlsClass && field.controlsClass.day) ? field.controlsClass.day : '';
-            const classNameMonth = (field.controlsClass && field.controlsClass.month) ? field.controlsClass.month : '';
-            const classNameYear = (field.controlsClass && field.controlsClass.year) ? field.controlsClass.year : '';
+            const classNameDay = (field.controlsClass && field.controlsClass.day) ? field.controlsClass.day : 'govuk-date-input__input govuk-input--width-2';
+            const classNameMonth = (field.controlsClass && field.controlsClass.month) ? field.controlsClass.month : 'govuk-date-input__input govuk-input--width-2';
+            const classNameYear = (field.controlsClass && field.controlsClass.year) ? field.controlsClass.year : 'govuk-date-input__input govuk-input--width-4';
 
             const parts = [];
 
             if (isExact) {
-              const dayPart = compiled['partials/forms/input-text-group'].render(inputText.call(this, key + '-day', { pattern: '[0-9]*', min: 1, max: 31, maxlength: 2, hintId: key + '-hint', date: true, autocomplete: autocomplete.day, formGroupClassName, className: classNameDay, isRequired }));
+              const dayPart = compiled['partials/forms/input-text-date'].render(inputText.call(this, key + '-day', { pattern: '[0-9]*', min: 1, max: 31, maxlength: 2, hintId: key + '-hint', date: true, autocomplete: autocomplete.day, formGroupClassName, className: classNameDay, isRequired }));
               parts.push(dayPart);
             }
 
-            const monthPart = compiled['partials/forms/input-text-group'].render(inputText.call(this, key + '-month', { pattern: '[0-9]*', min: 1, max: 12, maxlength: 2, hintId: key + '-hint', date: true, autocomplete: autocomplete.month, formGroupClassName, className: classNameMonth, isRequired }));
-            const yearPart = compiled['partials/forms/input-text-group'].render(inputText.call(this, key + '-year', { pattern: '[0-9]*', maxlength: 4, hintId: key + '-hint', date: true, autocomplete: autocomplete.year, formGroupClassName, className: classNameYear, isRequired }));
+            const monthPart = compiled['partials/forms/input-text-date'].render(inputText.call(this, key + '-month', { pattern: '[0-9]*', min: 1, max: 12, maxlength: 2, hintId: key + '-hint', date: true, autocomplete: autocomplete.month, formGroupClassName, className: classNameMonth, isRequired }));
+            const yearPart = compiled['partials/forms/input-text-date'].render(inputText.call(this, key + '-year', { pattern: '[0-9]*', maxlength: 4, hintId: key + '-hint', date: true, autocomplete: autocomplete.year, formGroupClassName, className: classNameYear, isRequired }));
 
             return parts.concat(monthPart, yearPart).join('\n');
           };

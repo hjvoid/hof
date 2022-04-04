@@ -17,8 +17,13 @@ module.exports = {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 200 }],
     // noHeading: 'true'
   },
-  dateOfBirth: dateComponent('dateOfBirth', {
-    validate: ['required', 'before', { type: 'after', arguments: ['1900'] }]
+  'dateOfBirth': dateComponent('dateOfBirth', {
+    controlType: 'date-input',
+    validate: [
+      'required',
+      'date',
+      { type: 'after', arguments: ['1900'] }
+    ]
   }),
   building: {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 100 }]

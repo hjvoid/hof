@@ -1,17 +1,18 @@
-<fieldset id="{{key}}-group" class="govuk-fieldset {{#className}}{{className}}{{/className}} {{#error}}validation-error{{/error}}">
-  <legend>
-    {{#error}}
-      <span id="{{key}}-error" class="error-message">{{error.message}}</span>
-    {{/error}}
-    <span{{#legendClassName}} class="{{legendClassName}}"{{/legendClassName}}>{{legend}}</span>
-    {{#hint}}
-      <span id="{{key}}-hint" class="form-hint">{{hint}}</span>
-    {{/hint}}
+<div class="govuk-form-group{{#errors.key}} govuk-form-group--error{{/errors.key}}">
+<fieldset id="{{key}}-group" class="govuk-fieldset{{#className}} {{className}}{{/className}}" role="group">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l{{#legendClassName}} {{legendClassName}}{{/legendClassName}}">
+    <h1 class="govuk-fieldset__heading">
+      {{legend}}
+    </h1>
   </legend>
-
-  <input type="hidden" name="{{key}}" />
-
-  <div class="form-group form-date">
+    {{#hint}}
+      <span id="{{key}}-hint" class="govuk-hint">{{hint}}</span>
+    {{/hint}}
+    {{#error}}
+      <span id="{{key}}-error" class="govuk-error-message">{{error.message}}</span>
+    {{/error}}
+  <div class="govuk-date-input">
     {{#input-date}}{{key}}{{/input-date}}
   </div>
 </fieldset>
+</div>

@@ -30,7 +30,11 @@ module.exports = {
     },
     '/dob': {
       fields: ['dateOfBirth'],
-      next: '/address'
+      next: '/address',
+      locals: {
+        step: 'dob',
+        labelClassName: 'govuk-input'
+      }
     },
     '/address': {
       fields: ['building', 'street', 'townOrCity', 'postcode'],
