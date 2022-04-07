@@ -11,6 +11,7 @@ module.exports = {
     legend: {
       className: 'visuallyhidden'
     },
+    className: ['inline'],
     options: ['basic-form', 'complex-form', 'build-your-own-form']
   },
   name: {
@@ -45,6 +46,7 @@ module.exports = {
   incomeTypes: {
     mixin: 'checkbox-group',
     labelClassName: 'visuallyhidden',
+    className: ['inline'],
     validate: ['required'],
     options: [
       'salary',

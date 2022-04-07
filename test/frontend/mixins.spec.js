@@ -220,11 +220,11 @@ describe('Template Mixins', () => {
         }));
       });
 
-      it('sets `labelClassName` to "form-label" by default', () => {
+      it('sets `labelClassName` to "govuk-label" by default', () => {
         middleware(req, res, next);
         res.locals['input-text']().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'form-label'
+          labelClassName: 'govuk-label'
         }));
       });
 
@@ -258,7 +258,7 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals['input-text']().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          formGroupClassName: 'form-group'
+          formGroupClassName: 'govuk-form-group'
         }));
       });
 
@@ -423,7 +423,7 @@ describe('Template Mixins', () => {
         }));
       });
 
-      it('form-group-year class is set to the year field by default', () => {
+      it('govuk-form-group class is set in the date fields by default', () => {
         middleware(req, res, next);
         res.locals['input-date']().call(res.locals, 'field-name');
 
@@ -433,16 +433,16 @@ describe('Template Mixins', () => {
         const monthCall = render.getCall(4);
         const yearCall = render.getCall(6);
 
-        dayCall.should.not.have.been.calledWith(sinon.match({
-          formGroupClassName: 'form-group-year'
+        dayCall.should.have.been.calledWith(sinon.match({
+          formGroupClassName: 'govuk-form-group'
         }));
 
-        monthCall.should.not.have.been.calledWith(sinon.match({
-          formGroupClassName: 'form-group-year'
+        monthCall.should.have.been.calledWith(sinon.match({
+          formGroupClassName: 'govuk-form-group'
         }));
 
         yearCall.should.have.been.calledWith(sinon.match({
-          formGroupClassName: 'form-group-year'
+          formGroupClassName: 'govuk-form-group'
         }));
       });
 
@@ -726,14 +726,14 @@ describe('Template Mixins', () => {
         }));
       });
 
-      it('sets `labelClassName` to "form-label" by default', () => {
+      it('sets `labelClassName` to "govuk-label" by default', () => {
         res.locals.options.fields = {
           'field-name': {}
         };
         middleware(req, res, next);
         res.locals.textarea().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'form-label'
+          labelClassName: 'govuk-label'
         }));
       });
 
@@ -1231,14 +1231,14 @@ describe('Template Mixins', () => {
         res.locals.select().should.be.a('function');
       });
 
-      it('defaults `labelClassName` to "form-label"', () => {
+      it('defaults `labelClassName` to "govuk-label"', () => {
         res.locals.options.fields = {
           'field-name': {}
         };
         middleware(req, res, next);
         res.locals.select().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'form-label'
+          labelClassName: 'govuk-label'
         }));
       });
 

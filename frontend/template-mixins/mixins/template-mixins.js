@@ -17,7 +17,8 @@ const PARTIALS = [
   'partials/forms/select',
   'partials/forms/checkbox',
   'partials/forms/textarea-group',
-  'partials/forms/option-group'
+  'partials/forms/option-group',
+  'partials/forms/checkbox-group'
 ];
 
 // This returns a middleware that places mixins against the `res.locals` object.
@@ -359,7 +360,7 @@ module.exports = function (options) {
         }
       },
       'checkbox-group': {
-        path: 'partials/forms/option-group',
+        path: 'partials/forms/checkbox-group',
         renderWith: optionGroup,
         options: {
           type: 'checkbox'
