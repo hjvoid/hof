@@ -228,7 +228,7 @@ describe('Template Mixins', () => {
         }));
       });
 
-      it('overrides `labelClassName` when set in field options', () => {
+      it('adds a `labelClassName` when set in field options', () => {
         res.locals.options.fields = {
           'field-name': {
             labelClassName: 'visuallyhidden'
@@ -237,7 +237,7 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals['input-text']().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'visuallyhidden'
+          labelClassName: 'govuk-label visuallyhidden'
         }));
       });
 
@@ -250,7 +250,7 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals['input-text']().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'abc def'
+          labelClassName: 'govuk-label abc def'
         }));
       });
 
@@ -316,7 +316,7 @@ describe('Template Mixins', () => {
         res.locals['input-text']().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
           required: false,
-          labelClassName: 'visuallyhidden'
+          labelClassName: 'govuk-label visuallyhidden'
         }));
       });
 
@@ -737,7 +737,7 @@ describe('Template Mixins', () => {
         }));
       });
 
-      it('overrides `labelClassName` when set in field options', () => {
+      it('adds `labelClassName` to existing default classes when set in field options', () => {
         res.locals.options.fields = {
           'field-name': {
             labelClassName: 'visuallyhidden'
@@ -746,11 +746,11 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals.textarea().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'visuallyhidden'
+          labelClassName: 'govuk-label visuallyhidden'
         }));
       });
 
-      it('sets all classes of `labelClassName` option', () => {
+      it('adds all classes of `labelClassName` option to existing defaults', () => {
         res.locals.options.fields = {
           'field-name': {
             labelClassName: ['abc', 'def']
@@ -759,7 +759,7 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals.textarea().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'abc def'
+          labelClassName: 'govuk-label abc def'
         }));
       });
 
@@ -1231,7 +1231,7 @@ describe('Template Mixins', () => {
         res.locals.select().should.be.a('function');
       });
 
-      it('defaults `labelClassName` to "govuk-label"', () => {
+      it('defaults `labelClassName` to "govuk-label "', () => {
         res.locals.options.fields = {
           'field-name': {}
         };
@@ -1242,7 +1242,7 @@ describe('Template Mixins', () => {
         }));
       });
 
-      it('overrides `labelClassName` when set in field options', () => {
+      it('adds `labelClassName` to the default class when set in field options', () => {
         res.locals.options.fields = {
           'field-name': {
             labelClassName: 'visuallyhidden'
@@ -1251,11 +1251,11 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals.select().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'visuallyhidden'
+          labelClassName: 'govuk-label visuallyhidden'
         }));
       });
 
-      it('sets all classes of `labelClassName` option', () => {
+      it('adds all classes of `labelClassName` option', () => {
         res.locals.options.fields = {
           'field-name': {
             labelClassName: ['abc', 'def']
@@ -1264,7 +1264,7 @@ describe('Template Mixins', () => {
         middleware(req, res, next);
         res.locals.select().call(res.locals, 'field-name');
         render.should.have.been.calledWith(sinon.match({
-          labelClassName: 'abc def'
+          labelClassName: 'govuk-label abc def'
         }));
       });
 

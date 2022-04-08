@@ -193,6 +193,7 @@ module.exports = function (options) {
       const lKey = getTranslationKey(field, key, 'label');
       const hint = conditionalTranslate(hKey);
       const required = isRequired(field);
+      const labelClassName = classNames(field, 'labelClassName');
       const autocomplete = field.autocomplete || extension.autocomplete;
 
       return Object.assign({}, extension, {
@@ -201,7 +202,7 @@ module.exports = function (options) {
         type: extension.type || type(field),
         value: this.values && this.values[key],
         label: t(lKey),
-        labelClassName: `govuk-label ${classNames(field, 'labelClassName')}`  || 'govuk-label',
+        labelClassName: labelClassName ? `govuk-label ${labelClassName}` : 'govuk-label',
         formGroupClassName: classNames(field, 'formGroupClassName') || extension.formGroupClassName || 'govuk-form-group',
         hint: hint,
         hintId: extension.hintId || (hint ? key + '-hint' : null),
