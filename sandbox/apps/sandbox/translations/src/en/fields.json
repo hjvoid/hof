@@ -14,7 +14,7 @@
     }
   },
   "name": {
-    "label": "Full name"
+    "label": "What is your full name?"
   },
   "dateOfBirth": {
     "legend": "What is your date of birth?",
@@ -79,14 +79,16 @@
     "legend": "International phone number"
   },
   "complaintDetails": {
-    "label": "Complaint details"
+    "label": "Complaint details",
+    "hint": "Briefly summarise your complaint. Include anything that can help our investigation."
   },
   "countrySelect": {
-    "label": "Select a country",
+    "label": "What is the appeal stage?",
     "hint": "Start to type the country name and options will appear"
   },
   "appealStages": {
     "label": "Appeal stage",
+    "hint": "Choose an appeal stage from the drop down menu",
     "options": {
       "null": "Select..."
     }

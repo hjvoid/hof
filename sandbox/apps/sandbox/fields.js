@@ -11,11 +11,12 @@ module.exports = {
     legend: {
       className: 'visuallyhidden'
     },
-    className: ['inline'],
+    className: ['govuk-radios--inline'],
     options: ['basic-form', 'complex-form', 'build-your-own-form']
   },
   name: {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 200 }],
+    labelClassName: ['govuk-label--l'],
     // noHeading: 'true'
   },
   'dateOfBirth': dateComponent('dateOfBirth', {
@@ -46,7 +47,6 @@ module.exports = {
   incomeTypes: {
     mixin: 'checkbox-group',
     labelClassName: 'visuallyhidden',
-    className: ['inline'],
     validate: ['required'],
     options: [
       'salary',
@@ -89,14 +89,14 @@ module.exports = {
   },
   complaintDetails: {
     mixin: 'textarea',
-    labelClassName: 'visuallyhidden',
     // we want to ignore default formatters as we want
     // to preserve white space
     'ignore-defaults': true,
     // apply the other default formatters
     formatter: ['trim', 'hyphens'],
+    labelClassName: ['govuk-label--l'],
     // attributes here are passed to the field element
-    validate: ['required', { type: 'maxlength', arguments: 5000 }],
+    validate: ['required', { type: 'maxlength', arguments: 100 }],
     attributes: [{
       attribute: 'rows',
       value: 8
@@ -104,7 +104,6 @@ module.exports = {
   },
   appealStages: {
     mixin: 'select',
-    labelClassName: 'visuallyhidden',
     validate: ['required'],
     options: [{
       value: '',

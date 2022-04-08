@@ -201,7 +201,7 @@ module.exports = function (options) {
         type: extension.type || type(field),
         value: this.values && this.values[key],
         label: t(lKey),
-        labelClassName: classNames(field, 'labelClassName') || 'govuk-label',
+        labelClassName: `govuk-label ${classNames(field, 'labelClassName')}`  || 'govuk-label',
         formGroupClassName: classNames(field, 'formGroupClassName') || extension.formGroupClassName || 'govuk-form-group',
         hint: hint,
         hintId: extension.hintId || (hint ? key + '-hint' : null),

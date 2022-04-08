@@ -1,10 +1,11 @@
-<div id="{{id}}-group" class="form-group{{#compound}} form-group-compound{{/compound}}{{#formGroupClassName}} {{formGroupClassName}}{{/formGroupClassName}}{{#error}} govuk-form-group--error{{/error}}">
-    <label for="{{id}}" class="{{labelClassName}}">
+<div id="{{id}}-group" class="{{#compound}} form-group-compound{{/compound}}{{#formGroupClassName}} {{formGroupClassName}}{{/formGroupClassName}}{{#error}} govuk-form-group--error{{/error}}">
+    {{^noHeading}}<h1 class="govuk-label-wrapper">{{/noHeading}}<label for="{{id}}" class="{{labelClassName}}{{^noHeading}}govuk-label--l{{/noHeading}}">
         {{{label}}}
-        {{#hint}}<span {{$hintId}}id="{{hintId}}" {{/hintId}}class="form-hint">{{hint}}</span>{{/hint}}
+        {{#hint}}<span {{$hintId}}id="{{hintId}}" {{/hintId}}class="govuk-hint">{{hint}}</span>{{/hint}}
         {{#error}}<span class="govuk-error-message">{{error.message}}</span>{{/error}}
     </label>
-    <select id="{{id}}" class="form-control{{#className}} {{className}}{{/className}}{{#error}} invalid-input{{/error}}" name="{{id}}" aria-required="{{required}}">
+    {{^noHeading}}</h1>{{/noHeading}}
+    <select id="{{id}}" class="govuk-select{{#className}} {{className}}{{/className}}{{#error}} invalid-input{{/error}}" name="{{id}}" aria-required="{{required}}">
     {{#options}}
         <option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>
     {{/options}}
